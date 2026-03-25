@@ -136,7 +136,7 @@ module.exports = {
       }
     } catch (err) {
       logger.error('Rob command error:', err);
-      const embed = errorEmbed('Error', 'An error occurred while processing the robbery.');
+      const embed = errorEmbed('Error', 'An unexpected error occurred. Please try again later.');
       if (interaction.replied || interaction.deferred) {
         return interaction.followUp({ embeds: [embed], ephemeral: true });
       }

@@ -59,7 +59,7 @@ module.exports = {
       return interaction.reply({ embeds: [embed] });
     } catch (err) {
       logger.error('Work command error:', err);
-      const embed = errorEmbed('Error', 'An error occurred while processing your work shift.');
+      const embed = errorEmbed('Error', 'An unexpected error occurred. Please try again later.');
       if (interaction.replied || interaction.deferred) {
         return interaction.followUp({ embeds: [embed], ephemeral: true });
       }

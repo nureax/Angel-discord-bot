@@ -206,7 +206,7 @@ module.exports = {
       });
     } catch (err) {
       logger.error('Leaderboard command error:', err);
-      const errEmbed = errorEmbed('Error', 'An error occurred while fetching the leaderboard.');
+      const errEmbed = errorEmbed('Error', 'An unexpected error occurred. Please try again later.');
       if (interaction.replied || interaction.deferred) {
         return interaction.editReply({ embeds: [errEmbed] });
       }

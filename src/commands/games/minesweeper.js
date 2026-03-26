@@ -252,7 +252,7 @@ async function startGame(interaction, player, difficulty, isRematch = false) {
       const rematchRow = buildRematchRow(gameId);
       return i.update({
         embeds: [buildEmbed(g, '💥 **BOOM! You hit a mine! Game over.**')],
-        components: [...buildGrid(gameId, g.board, true), rematchRow],
+        components: [rematchRow],
       });
     }
 
@@ -275,7 +275,7 @@ async function startGame(interaction, player, difficulty, isRematch = false) {
       const rematchRow = buildRematchRow(gameId);
       return i.update({
         embeds: [buildEmbed(g, '🎉 **You cleared the board! +50 🪙**')],
-        components: [...buildGrid(gameId, g.board, true), rematchRow],
+        components: [rematchRow],
       });
     }
 
@@ -294,7 +294,7 @@ async function startGame(interaction, player, difficulty, isRematch = false) {
       minesweeperStore.delete(gameId);
       reply.edit({
         embeds: [buildEmbed(g, '⏱️ **Timed out!**')],
-        components: buildGrid(gameId, g.board, true),
+        components: [buildRematchRow(gameId)],
       }).catch(() => null);
     }
   });

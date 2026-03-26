@@ -495,6 +495,10 @@ module.exports = {
       await startGame(interaction, interaction.user, vsBot ? null : opponent, false, wager);
     } catch (error) {
       logger.error(error);
+      if (wager > 0 && !vsBot && opponent) {
+        addToWallet(interaction.guildId, interaction.user.id, wager);
+        addToWallet(interaction.guildId, opponent.id, wager);
+      }
       if (interaction.replied || interaction.deferred) {
         return interaction.followUp({ content: 'An unexpected error occurred. Please try again later.', ephemeral: true });
       }

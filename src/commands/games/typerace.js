@@ -225,7 +225,6 @@ async function startGame(interaction, player1, opponentUser, difficulty, isRemat
           const loserId = i.user.id === gNow.player1.id ? gNow.player2.id : gNow.player1.id;
           recordLoss(interaction.guildId, loserId, 'typerace');
         }
-        recordProgress(interaction.guildId, i.user.id, 'win_game');
         addToWallet(interaction.guildId, i.user.id, coinReward).catch(() => null);
 
         const resultText = gNow.vsBot

@@ -269,7 +269,6 @@ async function startGame(interaction, player1, opponentUser, isRematch = false) 
             const loserId = i.user.id === gNow.player1.id ? gNow.player2.id : gNow.player1.id;
             recordLoss(interaction.guildId, loserId, 'scramble');
           }
-          recordProgress(interaction.guildId, i.user.id, 'win_game');
           addToWallet(interaction.guildId, i.user.id, coinReward).catch(() => null);
 
           const penaltyNote = gNow.vsBot && gNow.hintPenalty > 0

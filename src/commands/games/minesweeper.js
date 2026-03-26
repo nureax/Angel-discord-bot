@@ -270,7 +270,6 @@ async function startGame(interaction, player, difficulty, isRematch = false) {
       minesweeperStore.delete(gameId);
       collector.stop('gameover');
       recordWin(interaction.guildId, g.player.id, 'minesweeper');
-      recordProgress(interaction.guildId, g.player.id, 'win_game');
       addToWallet(interaction.guildId, g.player.id, 50).catch(() => null);
       const rematchRow = buildRematchRow(gameId);
       return i.update({
